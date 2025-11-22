@@ -1,0 +1,260 @@
+:root {
+  --bg-dark: #0a0e17;
+  --bg-card: #151b2b;
+  --primary: #00ff88;
+  /* Neon Green */
+  --secondary: #00ccff;
+  /* Neon Blue */
+  --accent: #ff0055;
+  /* Neon Red/Pink */
+  --text-main: #ffffff;
+  --text-muted: #8b9bb4;
+  --font-main: 'Inter', system-ui, sans-serif;
+  --gradient-main: linear-gradient(135deg, var(--bg-dark) 0%, #1a2332 100%);
+  --shadow-card: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 2.5rem;
+  background: linear-gradient(to right, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.3);
+}
+
+/* Utilities */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  background: var(--primary);
+  color: var(--bg-dark);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  /* Prevent text wrapping */
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: var(--shadow-card);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive Header */
+.app-header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
+/* Responsive Home Controls */
+.home-controls-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.home-controls-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Match Card Styles */
+.match-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  background: linear-gradient(90deg, rgba(21, 27, 43, 1) 0%, rgba(30, 40, 60, 1) 100%);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.match-info {
+  width: 100%;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.team-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-width: 150px;
+}
+
+.team-home {
+  justify-content: flex-end;
+}
+
+.team-away {
+  justify-content: flex-start;
+}
+
+.team-details {
+  text-align: right;
+}
+
+.team-details.away {
+  text-align: left;
+}
+
+.team-name {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.team-label {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+}
+
+.team-crest {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.score-badge {
+  padding: 0.5rem 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: #FFD700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  display: flex;
+  gap: 0.5rem;
+}
+
+.vs-badge {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  font-weight: bold;
+  color: var(--primary);
+}
+
+.predict-btn {
+  margin-left: 1rem;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .app-title {
+    font-size: 1.5rem;
+    /* Smaller title on mobile */
+  }
+
+  .app-header-content {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+
+  .home-controls-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: stretch;
+  }
+
+  .home-controls-buttons {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .home-controls-buttons .btn {
+    flex: 1;
+    justify-content: center;
+    padding: 0.8rem;
+  }
+
+  .card {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Mobile Match Card */
+  .match-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem;
+  }
+
+  .team-container {
+    width: 100%;
+    justify-content: center !important;
+    /* Force center alignment */
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .team-home {
+    flex-direction: column-reverse;
+    /* Crest on top for home team */
+  }
+
+  .team-details,
+  .team-details.away {
+    text-align: center;
+  }
+
+  .predict-btn {
+    margin-left: 0;
+    width: 100%;
+    margin-top: 1rem;
+  }
+}
