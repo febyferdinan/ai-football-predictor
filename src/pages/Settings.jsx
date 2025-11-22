@@ -117,7 +117,7 @@ const Settings = () => {
                             <option value="gemini">Google Gemini</option>
                             <option value="openai">OpenAI (GPT)</option>
                             <option value="openrouter">OpenRouter</option>
-                            <option value="openai-compatible">Cloudeka (DekaLLM)or OpenAI Compatible</option>
+                            <option value="openai-compatible">Cloudeka (DekaLLM) or OpenAI Compatible</option>
                         </select>
                     </div>
 
