@@ -27,7 +27,7 @@ A modern, AI-powered web application that predicts football match scores using a
     *   Football-Data.org (Match Data)
     *   Google Gemini API
     *   OpenAI API / OpenRouter
-    *   OpenAI-compatible endpoints
+    *   Cloudeka (DekaLLM) or OpenAI-compatible endpoints
 
 ## 🚀 Getting Started
 
@@ -65,10 +65,10 @@ To use the app, you need to configure your API keys in the **Settings** page:
     *   Enter the key in the "Football Data API Key" field.
 
 2.  **AI Provider**:
-    *   Select your preferred provider (Gemini, OpenAI, OpenRouter, Cloudeka or Local).
+    *   Select your preferred provider (Gemini, OpenAI, OpenRouter, Cloudeka or OpenAI-compatible).
     *   Enter the corresponding **API Key**.
     *   Specify a **Model Name** (e.g., `gemini-2.5-flash`, `gpt-4o`, `anthropic/claude-3-haiku`).
-    *   (Optional) For Local LLMs and OpenAI Compatible, set the **Base URL** (e.g., `http://localhost:1234/v1`).
+    *   (Optional) For Cloudeka, Local LLMs and OpenAI Compatible, set the **Base URL** (e.g., https://dekallm.cloudeka.ai/v1` or `http://localhost:1234/v1`).
 
 ## 📦 Deployment
 
