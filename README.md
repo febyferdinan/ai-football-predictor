@@ -2,7 +2,7 @@
 
 A modern, AI-powered web application that predicts football match scores using advanced Large Language Models (LLMs). Built with React and Vite, this app combines real-time match data with the analytical power of AI to provide score predictions and insights.
 
-![App Screenshot](./brain/aeb17f07-b36c-483b-befa-fb7519dd5158/uploaded_image_1763773026527.png)
+![App Screenshot](fp.png)
 
 ## ✨ Features
 
