@@ -117,7 +117,7 @@ const Settings = () => {
                             <option value="gemini">Google Gemini</option>
                             <option value="openai">OpenAI (GPT)</option>
                             <option value="openrouter">OpenRouter</option>
-                            <option value="openai-compatible">OpenAI Compatible (Local LLM/Other)</option>
+                            <option value="openai-compatible">Cloudeka (DekaLLM)or OpenAI Compatible</option>
                         </select>
                     </div>
 
@@ -131,7 +131,7 @@ const Settings = () => {
                                 name="aiBaseUrl"
                                 value={formData.aiBaseUrl}
                                 onChange={handleChange}
-                                placeholder="e.g., http://localhost:1234/v1"
+                                placeholder="e.g., https://dekallm.cloudeka.ai/v1, http://localhost:1234/v1"
                                 style={{
                                     width: '100%',
                                     padding: '0.75rem',
