@@ -64,7 +64,7 @@ To use the app, you need to configure your API keys in the **Settings** page:
     *   Enter the key in the "Football Data API Key" field.
 
 2.  **AI Provider**:
-    *   Select your preferred provider (Gemini, OpenAI, OpenRouter, or Local).
+    *   Select your preferred provider (Gemini, OpenAI, OpenRouter, Cloudeka or Local).
     *   Enter the corresponding **API Key**.
     *   (Optional) Specify a **Model Name** (e.g., `gemini-1.5-flash`, `gpt-4o`, `anthropic/claude-3-haiku`).
     *   (Optional) For Local LLMs and OpenAI Compatible, set the **Base URL** (e.g., `http://localhost:1234/v1`).
