@@ -64,7 +64,7 @@ function Header() {
   )
 }
 
-function Home({ matches, finishedMatches, loading, error, onRefresh, onPredict }) {
+function Home({ matches, liveMatches, finishedMatches, loading, error, onRefresh, onPredict }) {
   const [language, setLanguage] = useState('en')
 
   useEffect(() => {
@@ -150,6 +150,19 @@ function Home({ matches, finishedMatches, loading, error, onRefresh, onPredict }
               </div>
 
               <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem' }}>
+                <h2 style={{ marginBottom: '2rem', color: 'var(--accent)' }}>{t.liveMatches}</h2>
+                {liveMatches && liveMatches.length > 0 ? (
+                  <div className="match-list">
+                    {liveMatches.map(match => (
+                      <MatchCard key={match.id} match={match} onPredict={onPredict} language={language} />
+                    ))}
+                  </div>
+                ) : (
+                  <p style={{ color: 'var(--text-muted)' }}>{t.noMatches}</p>
+                )}
+              </div>
+
+              <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem' }}>
                 <h2 style={{ marginBottom: '2rem', color: 'var(--text-muted)' }}>{t.finishedMatches}</h2>
                 {finishedMatches.length > 0 ? (
                   <div className="match-list">
@@ -171,6 +184,7 @@ function Home({ matches, finishedMatches, loading, error, onRefresh, onPredict }
 
 function App() {
   const [matches, setMatches] = useState([])
+  const [liveMatches, setLiveMatches] = useState([])
   const [finishedMatches, setFinishedMatches] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(null)
@@ -188,6 +202,10 @@ function App() {
     // Fetch Scheduled Matches
     const { matches: scheduledData, error: apiError } = await fetchMatches('SCHEDULED')
     setMatches(scheduledData)
+
+    // Fetch Live Matches
+    const { matches: liveData } = await fetchMatches('IN_PLAY')
+    setLiveMatches(liveData)
 
     // Fetch Finished Matches
     const { matches: finishedData } = await fetchMatches('FINISHED')
@@ -234,6 +252,7 @@ function App() {
           <Route path="/" element={
             <Home
               matches={matches}
+              liveMatches={liveMatches}
               finishedMatches={finishedMatches}
               loading={loading}
               error={error}

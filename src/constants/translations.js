@@ -2,6 +2,7 @@ export const TRANSLATIONS = {
     en: {
         appTitle: "AI Football Predictor",
         upcomingMatches: "Upcoming Matches",
+        liveMatches: "Live Matches",
         finishedMatches: "Finished Matches",
         settings: "Settings",
         signIn: "Sign In",
@@ -37,6 +38,7 @@ export const TRANSLATIONS = {
     id: {
         appTitle: "Prediksi Bola AI",
         upcomingMatches: "Pertandingan Mendatang",
+        liveMatches: "Pertandingan Langsung",
         finishedMatches: "Pertandingan Selesai",
         settings: "Pengaturan",
         signIn: "Masuk",
