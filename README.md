@@ -10,7 +10,7 @@ A modern, AI-powered web application that predicts football match scores using a
     *   **Google Gemini** (Pro, Flash, etc.)
     *   **OpenAI** (GPT-4, GPT-3.5)
     *   **OpenRouter** (Claude 3, Mistral, Llama 3, etc.)
-    *   **Local LLMs** (via OpenAI-compatible endpoints like LM Studio or Ollama)
+    *   **OpenAI-compatible endpoints** (like Local LLMs or LM Studio or Ollama or [Cloudeka DekaLLM](https://www.cloudeka.id))
 *   **📅 Real-Time Match Data**: Fetches up-to-date schedules and results from [Football-Data.org](https://www.football-data.org/).
 *   **🌍 Multi-Language Support**: Fully localized interface in **English** and **Bahasa Indonesia**.
 *   **📱 Mobile-First Design**: A responsive, sleek UI that looks great on smartphones and desktops.
@@ -26,6 +26,7 @@ A modern, AI-powered web application that predicts football match scores using a
     *   Football-Data.org (Match Data)
     *   Google Gemini API
     *   OpenAI API / OpenRouter
+    *   OpenAI-compatible endpoints
 
 ## 🚀 Getting Started
 
@@ -38,7 +39,7 @@ A modern, AI-powered web application that predicts football match scores using a
 
 1.  **Clone the repository**
     ```bash
-    git clone https://github.com/yourusername/football-predictor.git
+    git clone https://github.com/febyferdinan/ai-football-predictor.git
     cd football-predictor
     ```
 
@@ -66,7 +67,7 @@ To use the app, you need to configure your API keys in the **Settings** page:
     *   Select your preferred provider (Gemini, OpenAI, OpenRouter, or Local).
     *   Enter the corresponding **API Key**.
     *   (Optional) Specify a **Model Name** (e.g., `gemini-1.5-flash`, `gpt-4o`, `anthropic/claude-3-haiku`).
-    *   (Optional) For Local LLMs, set the **Base URL** (e.g., `http://localhost:1234/v1`).
+    *   (Optional) For Local LLMs and OpenAI Compatible, set the **Base URL** (e.g., `http://localhost:1234/v1`).
 
 ## 📦 Deployment
 
