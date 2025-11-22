@@ -1,16 +1,82 @@
-# React + Vite
+# ⚽ AI Football Predictor
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, AI-powered web application that predicts football match scores using advanced Large Language Models (LLMs). Built with React and Vite, this app combines real-time match data with the analytical power of AI to provide score predictions and insights.
 
-Currently, two official plugins are available:
+![App Screenshot](./brain/aeb17f07-b36c-483b-befa-fb7519dd5158/uploaded_image_1763773026527.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+*   **🤖 AI-Powered Predictions**: Predict match scores using your preferred AI provider:
+    *   **Google Gemini** (Pro, Flash, etc.)
+    *   **OpenAI** (GPT-4, GPT-3.5)
+    *   **OpenRouter** (Claude 3, Mistral, Llama 3, etc.)
+    *   **Local LLMs** (via OpenAI-compatible endpoints like LM Studio or Ollama)
+*   **📅 Real-Time Match Data**: Fetches up-to-date schedules and results from [Football-Data.org](https://www.football-data.org/).
+*   **🌍 Multi-Language Support**: Fully localized interface in **English** and **Bahasa Indonesia**.
+*   **📱 Mobile-First Design**: A responsive, sleek UI that looks great on smartphones and desktops.
+*   **🔒 Privacy-Focused**: API keys are stored locally in your browser's `localStorage` and are never sent to our servers.
+*   **⚙️ Customizable**: Configure your preferred AI model, base URL, and language in the Settings.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
 
-## Expanding the ESLint configuration
+*   **Frontend**: React 19, Vite
+*   **Styling**: Vanilla CSS (Responsive, Dark Mode)
+*   **Routing**: React Router DOM
+*   **APIs**:
+    *   Football-Data.org (Match Data)
+    *   Google Gemini API
+    *   OpenAI API / OpenRouter
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🚀 Getting Started
+
+### Prerequisites
+
+*   Node.js (v16 or higher)
+*   npm or yarn
+
+### Installation
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/yourusername/football-predictor.git
+    cd football-predictor
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Start the development server**
+    ```bash
+    npm run dev
+    ```
+
+4.  Open your browser and navigate to `http://localhost:5173`.
+
+## ⚙️ Configuration
+
+To use the app, you need to configure your API keys in the **Settings** page:
+
+1.  **Football Data API Key**:
+    *   Sign up for a free API key at [football-data.org](https://www.football-data.org/).
+    *   Enter the key in the "Football Data API Key" field.
+
+2.  **AI Provider**:
+    *   Select your preferred provider (Gemini, OpenAI, OpenRouter, or Local).
+    *   Enter the corresponding **API Key**.
+    *   (Optional) Specify a **Model Name** (e.g., `gemini-1.5-flash`, `gpt-4o`, `anthropic/claude-3-haiku`).
+    *   (Optional) For Local LLMs, set the **Base URL** (e.g., `http://localhost:1234/v1`).
+
+## 📦 Deployment
+
+This project is optimized for deployment on **Vercel**.
+
+1.  Push your code to a GitHub repository.
+2.  Import the project into Vercel.
+3.  Vercel will automatically detect the Vite settings.
+4.  **Important**: The `vercel.json` file included in this repo handles the API proxying required to avoid CORS issues with the Football Data API.
+
+## 📄 License
+
+This project is open-source and available under the [MIT License](LICENSE).
