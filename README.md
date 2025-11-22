@@ -68,7 +68,7 @@ To use the app, you need to configure your API keys in the **Settings** page:
     *   Select your preferred provider (Gemini, OpenAI, OpenRouter, Cloudeka or OpenAI-compatible).
     *   Enter the corresponding **API Key**.
     *   Specify a **Model Name** (e.g., `gemini-2.5-flash`, `gpt-4o`, `anthropic/claude-3-haiku`).
-    *   (Optional) For Cloudeka, Local LLMs and OpenAI Compatible, set the **Base URL** (e.g., https://dekallm.cloudeka.ai/v1` or `http://localhost:1234/v1`).
+    *   (Optional) For Cloudeka, Local LLMs and OpenAI Compatible, set the **Base URL** (e.g., `https://dekallm.cloudeka.ai/v1` or `http://localhost:1234/v1`).
 
 ## 📦 Deployment
 
