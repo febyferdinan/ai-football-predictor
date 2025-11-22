@@ -37,11 +37,16 @@ const MatchCard = ({ match, onPredict, language = 'en' }) => {
                 )}
             </div>
 
-            {match.status === 'FINISHED' ? (
-                <div className="score-badge">
-                    <span>{match.score?.fullTime?.home ?? '-'}</span>
-                    <span>:</span>
-                    <span>{match.score?.fullTime?.away ?? '-'}</span>
+            {['FINISHED', 'IN_PLAY', 'PAUSED'].includes(match.status) ? (
+                <div className="score-badge" style={{ flexDirection: 'column', alignItems: 'center', gap: '0.2rem' }}>
+                    {['IN_PLAY', 'PAUSED'].includes(match.status) && (
+                        <span className="live-indicator">● LIVE</span>
+                    )}
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <span>{match.score?.fullTime?.home ?? match.score?.current?.home ?? 0}</span>
+                        <span>:</span>
+                        <span>{match.score?.fullTime?.away ?? match.score?.current?.away ?? 0}</span>
+                    </div>
                 </div>
             ) : (
                 <div className="vs-badge">

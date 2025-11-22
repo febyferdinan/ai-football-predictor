@@ -182,6 +182,29 @@ h1 {
   gap: 0.5rem;
 }
 
+.live-indicator {
+  color: var(--accent);
+  font-size: 0.8rem;
+  animation: pulse 2s infinite;
+  margin-right: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .vs-badge {
   padding: 0.5rem 1rem;
   background: rgba(255, 255, 255, 0.05);
