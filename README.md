@@ -11,7 +11,7 @@ A modern, AI-powered web application that predicts football match scores using a
     *   **OpenAI** (GPT-4, GPT-3.5)
     *   **OpenRouter** (Claude 3, Mistral, Llama 3, etc.)
     *   **Cloudeka** (DekaLLM)
-    *   **OpenAI-compatible endpoints** (like Local LLMs or LM Studio or Ollama or [Cloudeka DekaLLM](https://www.cloudeka.id))
+    *   **OpenAI-compatible endpoints** (like [Cloudeka DekaLLM](https://www.cloudeka.id), Local LLMs, LM Studio or Ollama)
 *   **📅 Real-Time Match Data**: Fetches up-to-date schedules and results from [Football-Data.org](https://www.football-data.org/).
 *   **🌍 Multi-Language Support**: Fully localized interface in **English** and **Bahasa Indonesia**.
 *   **📱 Mobile-First Design**: A responsive, sleek UI that looks great on smartphones and desktops.
