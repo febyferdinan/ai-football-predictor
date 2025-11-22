@@ -116,6 +116,7 @@ const Settings = () => {
                         >
                             <option value="gemini">Google Gemini</option>
                             <option value="openai">OpenAI (GPT)</option>
+                            <option value="openrouter">OpenRouter</option>
                             <option value="openai-compatible">OpenAI Compatible (Local LLM/Other)</option>
                         </select>
                     </div>
@@ -156,7 +157,8 @@ const Settings = () => {
                             placeholder={
                                 formData.aiProvider === 'openai' ? "e.g., gpt-4 (default: gpt-3.5-turbo)" :
                                     formData.aiProvider === 'gemini' ? "e.g., gemini-1.5-flash (default: gemini-pro)" :
-                                        "e.g., llama-2-7b-chat"
+                                        formData.aiProvider === 'openrouter' ? "e.g., anthropic/claude-3-opus" :
+                                            "e.g., llama-2-7b-chat"
                             }
                             style={{
                                 width: '100%',
