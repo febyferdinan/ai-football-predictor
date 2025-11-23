@@ -66,6 +66,7 @@ function Header() {
 
 function Home({ matches, liveMatches, finishedMatches, loading, error, onRefresh, onPredict }) {
   const [language, setLanguage] = useState('en')
+  const [activeTab, setActiveTab] = useState('upcoming')
 
   useEffect(() => {
     const handleSettingsChange = () => {
@@ -77,6 +78,14 @@ function Home({ matches, liveMatches, finishedMatches, loading, error, onRefresh
     return () => window.removeEventListener('settings-change', handleSettingsChange)
   }, [])
 
+  // Auto-switch to live tab if there are live matches and it's the initial load
+  useEffect(() => {
+    if (liveMatches.length > 0 && !loading) {
+      // Optional: could auto-switch here, but might be annoying if user selected something else.
+      // For now, let's just leave it as manual or default to upcoming.
+    }
+  }, [liveMatches, loading])
+
   const t = TRANSLATIONS[language] || TRANSLATIONS.en
 
   return (
@@ -84,7 +93,11 @@ function Home({ matches, liveMatches, finishedMatches, loading, error, onRefresh
       <main className="container" style={{ flex: 1, padding: '2rem 0' }}>
         <div className="card" style={{ textAlign: 'center', padding: '3rem' }}>
           <div className="home-controls-header">
-            <h2 style={{ margin: 0 }}>{t.upcomingMatches}</h2>
+            <h2 style={{ margin: 0 }}>
+              {activeTab === 'upcoming' && t.upcomingMatches}
+              {activeTab === 'live' && t.liveMatches}
+              {activeTab === 'finished' && t.finishedMatches}
+            </h2>
             <div className="home-controls-buttons">
               <button onClick={onRefresh} className="btn" style={{
                 fontSize: '0.9rem',
@@ -115,6 +128,27 @@ function Home({ matches, liveMatches, finishedMatches, loading, error, onRefresh
             </div>
           </div>
 
+          <div className="tabs-container">
+            <button
+              className={`tab-btn ${activeTab === 'upcoming' ? 'active' : ''}`}
+              onClick={() => setActiveTab('upcoming')}
+            >
+              {t.upcomingMatches} ({matches.length})
+            </button>
+            <button
+              className={`tab-btn ${activeTab === 'live' ? 'active' : ''}`}
+              onClick={() => setActiveTab('live')}
+            >
+              {t.liveMatches} ({liveMatches.length})
+            </button>
+            <button
+              className={`tab-btn ${activeTab === 'finished' ? 'active' : ''}`}
+              onClick={() => setActiveTab('finished')}
+            >
+              {t.finishedMatches} ({finishedMatches.length})
+            </button>
+          </div>
+
           <p style={{ color: 'var(--text-muted)', marginBottom: '2rem' }}>
             {t.selectMatch}
           </p>
@@ -139,41 +173,41 @@ function Home({ matches, liveMatches, finishedMatches, loading, error, onRefresh
             <div style={{ padding: '2rem', color: 'var(--primary)' }}>{t.loading}</div>
           ) : (
             <>
-              <div className="match-list">
-                {matches.length > 0 ? (
-                  matches.map(match => (
-                    <MatchCard key={match.id} match={match} onPredict={onPredict} language={language} />
-                  ))
-                ) : (
-                  <p>{t.noMatches}</p>
-                )}
-              </div>
-
-              <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem' }}>
-                <h2 style={{ marginBottom: '2rem', color: 'var(--accent)' }}>{t.liveMatches}</h2>
-                {liveMatches && liveMatches.length > 0 ? (
-                  <div className="match-list">
-                    {liveMatches.map(match => (
+              {activeTab === 'upcoming' && (
+                <div className="match-list">
+                  {matches.length > 0 ? (
+                    matches.map(match => (
                       <MatchCard key={match.id} match={match} onPredict={onPredict} language={language} />
-                    ))}
-                  </div>
-                ) : (
-                  <p style={{ color: 'var(--text-muted)' }}>{t.noMatches}</p>
-                )}
-              </div>
+                    ))
+                  ) : (
+                    <p>{t.noMatches}</p>
+                  )}
+                </div>
+              )}
 
-              <div style={{ marginTop: '4rem', borderTop: '1px solid rgba(255,255,255,0.1)', paddingTop: '2rem' }}>
-                <h2 style={{ marginBottom: '2rem', color: 'var(--text-muted)' }}>{t.finishedMatches}</h2>
-                {finishedMatches.length > 0 ? (
-                  <div className="match-list">
-                    {finishedMatches.map(match => (
+              {activeTab === 'live' && (
+                <div className="match-list">
+                  {liveMatches && liveMatches.length > 0 ? (
+                    liveMatches.map(match => (
+                      <MatchCard key={match.id} match={match} onPredict={onPredict} language={language} />
+                    ))
+                  ) : (
+                    <p style={{ color: 'var(--text-muted)' }}>{t.noMatches}</p>
+                  )}
+                </div>
+              )}
+
+              {activeTab === 'finished' && (
+                <div className="match-list">
+                  {finishedMatches.length > 0 ? (
+                    finishedMatches.map(match => (
                       <MatchCard key={match.id} match={match} onPredict={() => { }} language={language} />
-                    ))}
-                  </div>
-                ) : (
-                  <p style={{ color: 'var(--text-muted)' }}>{t.noFinishedMatches}</p>
-                )}
-              </div>
+                    ))
+                  ) : (
+                    <p style={{ color: 'var(--text-muted)' }}>{t.noFinishedMatches}</p>
+                  )}
+                </div>
+              )}
             </>
           )}
         </div>
