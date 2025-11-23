@@ -206,6 +206,14 @@ const mockPrediction = (match, customReason = null) => {
 const generatePrompt = (match, context, language = 'en') => {
   let prompt = `Predict the score for the football match between ${match.homeTeam.name} (Home) and ${match.awayTeam.name} (Away).`;
 
+  if (['IN_PLAY', 'PAUSED'].includes(match.status)) {
+    const homeScore = match.score?.fullTime?.home ?? match.score?.current?.home ?? 0;
+    const awayScore = match.score?.fullTime?.away ?? match.score?.current?.away ?? 0;
+    prompt += `\n\nLIVE MATCH UPDATE: The match is currently in progress (Status: ${match.status}).`;
+    prompt += `\nCurrent Score: ${match.homeTeam.name} ${homeScore} - ${awayScore} ${match.awayTeam.name}.`;
+    prompt += `\nConsider this current score heavily in your prediction for the FINAL full-time score.`;
+  }
+
   if (context && context.h2h) {
     prompt += `\n\nHead-to-Head Stats (Last ${context.h2h.numberOfMatches} matches):`;
     prompt += `\n- ${match.homeTeam.name} Wins: ${context.h2h.homeTeam.wins}`;
