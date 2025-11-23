@@ -192,7 +192,7 @@ function Home({ matches, liveMatches, finishedMatches, loading, error, onRefresh
                       <MatchCard key={match.id} match={match} onPredict={onPredict} language={language} />
                     ))
                   ) : (
-                    <p style={{ color: 'var(--text-muted)' }}>{t.noMatches}</p>
+                    <p style={{ color: 'var(--text-muted)' }}>{t.noLiveMatches}</p>
                   )}
                 </div>
               )}
