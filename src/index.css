@@ -322,4 +322,26 @@ h1 {
     width: 100%;
     margin-top: 1rem;
   }
+
+  /* Mobile Tabs */
+  .tabs-container {
+    justify-content: space-between;
+    overflow-x: visible;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    gap: 0.5rem;
+  }
+
+  .tab-btn {
+    white-space: normal;
+    flex: 1;
+    font-size: 0.75rem;
+    padding: 0.5rem 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+    height: 100%;
+  }
 }
